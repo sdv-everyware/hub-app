@@ -11,7 +11,7 @@ use everyware_ui::list_view::ListEvent;
 use everyware_ui::segmented::SegmentedEvent;
 use everyware_ui::slider::SliderEvent;
 use everyware_ui::toggle::ToggleEvent;
-use everyware_ui::{row_of, Gesture};
+use everyware_ui::{part_of, row_of, Gesture};
 use harry::side_effects::SideEffects;
 use harry::state::StateAction;
 use std::time::Instant;
@@ -58,8 +58,8 @@ fn on_gesture(state: &mut State, node: &str, gesture: Gesture) {
         }
         return;
     }
-    // the fan's segments report by their own names, "#segmented/segment-<1..3>"
-    if let Some(n) = node.strip_prefix("#segmented/segment-").and_then(|n| n.parse::<usize>().ok()) {
+    // the fan's segments, "#hub/fan/#segmented/segment-<1..3>" (the part with its slot)
+    if let Some(n) = part_of("#hub/fan", node).and_then(|p| p.strip_prefix("#segmented/segment-")).and_then(|n| n.parse::<usize>().ok()) {
         if let Some(SegmentedEvent::Selected(i)) = n.checked_sub(1).and_then(|i| state.fan.on(i, gesture)) {
             log::info!("hub: fan {}", ["low", "medium", "high"][i.min(2)]);
         }
