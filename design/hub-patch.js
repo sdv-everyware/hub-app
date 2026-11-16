@@ -130,8 +130,7 @@ module.exports = function (msg, { key, C, FONT, authoring }) {
   const list = frame(root, '#hub/news', NX, 96, 490, LIST_H, { frameMaskDisabled: false });
   const row = variant('#list-item', 'state=default, kind=image, lines=three, size=column');
   for (let i = 0; i * PITCH < LIST_H; i++) instance(list, `#hub/news/preview-${i + 1}`, 0, i * PITCH, row);
-  const sb = frame(root, '#hub/news/scrollbar', NX + 490 + 8, 96, 6, LIST_H);
-  instance(sb, '#hub/news/scrollbar/preview', 0, 0, variant('#scrollbar', `length=${LIST_H}`));
+  A.scrollbarSlot(root, '#hub/news/scrollbar', NX + 490 + 8, 96, LIST_H);
 
   log(`#hub-root: ${A.count()} nodes`);
   return msg;

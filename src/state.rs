@@ -57,7 +57,7 @@ impl State {
             talking: false,
             door: IconButton::new(IconButtonKind::Tonal, Icon::ChevronRight),
             locked: true,
-            news: crate::news::empty(),
+            news: crate::news::empty(sizes.frame("#hub/news").map_or(0.0, |f| f.height)),
         }
     }
 }

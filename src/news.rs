@@ -5,12 +5,12 @@ use everyware_ui::images;
 use everyware_ui::list_item::{ListItem, ListItemKind, ListItemLines, ListItemSize};
 use everyware_ui::list_view::ListView;
 
-/// The list's slot in the design (hub-patch.js): 744 high, rows 128 + 8 apart.
-pub const LIST_H: f32 = 744.0;
+/// The rows of the list's slot in the design (hub-patch.js): 128 + 8 apart.
 pub const ROW_PITCH: f32 = 128.0 + 8.0;
 
-pub fn empty() -> ListView {
-    ListView::new([], LIST_H, ROW_PITCH)
+/// The feed before the first message: no rows, as high as the design's slot (#hub/news).
+pub fn empty(height: f32) -> ListView {
+    ListView::new([], height, ROW_PITCH)
 }
 
 pub fn rows(feed: &NewsFeed, now: i64) -> Vec<ListItem> {
