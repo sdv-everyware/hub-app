@@ -1,6 +1,6 @@
 //! hub-app: the news column: one #list-item row (image, three lines, column) per story.
 
-use everyware_dashboard_grpc::news::{NewsFeed, NewsStory, NewsThumbnail};
+use everyware_catalog::news::{NewsFeed, NewsStory, NewsThumbnail};
 use everyware_ui::images;
 use everyware_ui::list_item::{ListItem, ListItemKind, ListItemLines, ListItemSize};
 use everyware_ui::list_view::ListView;

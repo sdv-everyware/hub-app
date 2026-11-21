@@ -4,8 +4,8 @@
 
 use crate::clock::Clock;
 use crate::state::{State, SETPOINT_MAX, SETPOINT_MIN, SETPOINT_STEP};
-use everyware_dashboard_grpc::news::NewsFeed;
-use everyware_dashboard_grpc::weather::Weather;
+use everyware_catalog::news::NewsFeed;
+use everyware_catalog::weather::Weather;
 use everyware_ui::button::ButtonEvent;
 use everyware_ui::list_view::ListEvent;
 use everyware_ui::segmented::SegmentedEvent;

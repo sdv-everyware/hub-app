@@ -2,7 +2,7 @@
 //! (everyware_ui), the data from the house, the clock.
 
 use crate::clock::Clock;
-use everyware_dashboard_grpc::weather::Weather;
+use everyware_catalog::weather::Weather;
 use everyware_ui::design::Sizes;
 use everyware_ui::button::{Button, ButtonKind, Icon, IconButton, IconButtonKind};
 use everyware_ui::list_view::ListView;
